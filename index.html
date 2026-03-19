@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Global - Conecta con el Mundo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Chat Global</h1>
+            <p class="subtitle">Conecta con personas de todo el mundo</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Panel de Usuario -->
+            <div class="user-panel">
+                <div class="status-card">
+                    <h3>Tu Información</h3>
+                    <div class="info-group">
+                        <label>Tu ID:</label>
+                        <div class="id-display">
+                            <span id="myPeerId">Conectando...</span>
+                            <button id="copyIdBtn" class="btn-copy" title="Copiar ID">📋</button>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <label>Tu Idioma:</label>
+                        <select id="myLanguage" class="language-select">
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="zh">🇨🇳 中文 (Chino)</option>
+                            <option value="ja">🇯🇵 日本語 (Japonés)</option>
+                            <option value="ko">🇰🇷 한국어 (Coreano)</option>
+                            <option value="fr">🇫🇷 Français</option>
+                            <option value="de">🇩🇪 Deutsch</option>
+                            <option value="pt">🇧🇷 Português</option>
+                        </select>
+                    </div>
+                    <div class="info-group">
+                        <label>Tu Nombre:</label>
+                        <input type="text" id="myName" placeholder="Ej: Diego" class="input-text">
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span id="statusText">Desconectado</span>
+                    </div>
+                </div>
+
+                <!-- Conectar con alguien -->
+                <div class="connect-card">
+                    <h3>Conectar con Alguien</h3>
+                    <div class="info-group">
+                        <label>ID del Amigo:</label>
+                        <input type="text" id="friendId" placeholder="Pega el ID aquí" class="input-text">
+                    </div>
+                    <button id="connectBtn" class="btn-primary">🔗 Conectar</button>
+                </div>
+
+                <!-- Salas Públicas -->
+                <div class="rooms-card">
+                    <h3>🌐 Sala Global</h3>
+                    <p class="help-text">Comparte tu ID con amigos o únete a nuestra comunidad Discord/Telegram para encontrar personas</p>
+                    <div class="share-buttons">
+                        <button id="shareWhatsApp" class="btn-share">WhatsApp</button>
+                        <button id="shareTelegram" class="btn-share">Telegram</button>
+                        <button id="shareTwitter" class="btn-share">Twitter</button>
+                    </div>
+                </div>
+
+                <!-- Usuarios Conectados -->
+                <div class="users-card">
+                    <h3>👥 Conectados</h3>
+                    <div id="connectedUsers" class="users-list">
+                        <p class="no-users">No hay usuarios conectados</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Chat -->
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <div class="chat-info">
+                        <h3 id="chatTitle">Esperando conexión...</h3>
+                        <span id="chatStatus" class="chat-status">Sin conexión</span>
+                    </div>
+                    <div class="chat-actions">
+                        <button id="translateToggle" class="btn-icon" title="Traducción automática">
+                            🌐
+                        </button>
+                        <button id="disconnectBtn" class="btn-icon" title="Desconectar">
+                            ❌
+                        </button>
+                    </div>
+                </div>
+
+                <div id="chatMessages" class="chat-messages">
+                    <div class="welcome-message">
+                        <h2>¡Bienvenido al Chat Global! 🌍</h2>
+                        <p>Para empezar:</p>
+                        <ol>
+                            <li>Copia tu ID y compártelo con un amigo</li>
+                            <li>O pide a alguien su ID y pégalo arriba</li>
+                            <li>¡Empieza a chatear con personas de todo el mundo!</li>
+                        </ol>
+                        <p class="tip">💡 <strong>Tip:</strong> Activa la traducción automática para hablar con personas en otros idiomas</p>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="translation-indicator" id="translationIndicator" style="display: none;">
+                        🌐 Traducción activada
+                    </div>
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Escribe un mensaje... (presiona Enter para enviar)" 
+                            rows="1"
+                            disabled
+                        ></textarea>
+                        <button id="sendBtn" class="btn-send" disabled>
+                            ➤
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
