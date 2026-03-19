@@ -2,6 +2,8 @@
 
 Una aplicación de chat en tiempo real que te permite conectarte con personas de todo el mundo **sin necesidad de servidor propio**. Perfecta para comunicarte con personas que hablan chino, japonés u otros idiomas.
 
+> 📖 **[Ver Guía de Inicio Rápido](QUICK_START.md)** | 🚀 **[Guía de Despliegue](DEPLOYMENT.md)**
+
 ## ✨ Características
 
 - 🔗 **Conexión P2P (Peer-to-Peer)**: No necesitas servidor propio, usa tecnología WebRTC
